@@ -168,7 +168,7 @@ cp -avf "/ctx/files"/. /
 systemctl enable --global chezmoi-init.service
 systemctl enable --global chezmoi-update.timer
 systemctl enable --global dms.service
-systemctl enable --global foot-server.service
+# systemctl enable --global foot-server.service
 systemctl enable --global fcitx5.service
 systemctl enable --global gnome-keyring-daemon.service
 systemctl enable --global gnome-keyring-daemon.socket
