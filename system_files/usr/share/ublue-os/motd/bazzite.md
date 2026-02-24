@@ -1,5 +1,4 @@
-# Welcome 󰊴
-# Welcome to Bazzirco 󰊴
+# Welcome to Doubutsu 󰊴
 󱋩 `%IMAGE_NAME%:%IMAGE_BRANCH%`
 󰟀 `%GREENBOOT%`
 
@@ -10,8 +9,3 @@
 | `fastfetch` | View system information |
 | `brew help` | Manage command line packages |
 | `zjust` | List all zirconium-related commands |
-
-%TIP%
-- **** [Report an issue](https://github.com/bazzirco/bazzirco/issues)
-- **󰙯** [Discord](https://discord.gg/mmgNQpxwhW)
-- **** [Bluesky](https://bsky.app/profile/zirconium.gay)
