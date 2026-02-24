@@ -79,7 +79,7 @@ dnf -y install \
     fastfetch \
     fcitx5-mozc \
     flatpak \
-    ptyxis \	#Foot terminal is stupid. Let's use Ptyxis instead
+    ptyxis \
     fpaste \
     fzf \
     git-core \
@@ -107,8 +107,8 @@ dnf -y install \
     xdg-terminal-exec \
     xdg-user-dirs \
     xwayland-satellite \
-    micro \		# Better nano
-    oxygen-sounds \		# Cool sounds
+    micro \	
+    oxygen-sounds \
 	
 
 # we already have a service for handling fcitx5
@@ -122,7 +122,7 @@ dnf install -y --setopt=install_weak_deps=False \
     kf6-kirigami \
     qt6ct \
     plasma-breeze \
-    kf6-qqc2-desktop-style
+    kf6-qqc2-desktop-style \
 
 #Only do greetd keyring stuff on non-deck images
 if [ "$DECK_IMAGE" == False ] ; then
