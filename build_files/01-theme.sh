@@ -64,9 +64,10 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:pvermeer:gamescope-session-g
 
 #TODO Fix the error when building
 # Adding howdy for face unlocking
-# dnf5 -y copr enable principis/howdy
-# dnf5 -y copr disable principis/howdy
-# dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:principis:howdy install howdy
+dnf copr enable ronnypfannschmidt/howdy-beta -y
+dnf copr disable ronnypfannschmidt/howdy-beta -y
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:ronnypfannschmidt:howdy-beta install howdy-beta howdy-gtk howdy-authselect
+howdy-authselect enable
 
 # Other system packages
 dnf -y install \
