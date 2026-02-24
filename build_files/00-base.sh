@@ -25,21 +25,21 @@ dnf -y remove \
 		gnome-software
 
 if [ -z "$IMAGE_PRETTY_NAME" ] ; then
-  jq '.["image-name"]="bazzirco"' \
+  jq '.["image-name"]="doubutsu"' \
     /usr/share/ublue-os/image-info.json \
     > /usr/share/ublue-os/image-info.json.tmp \
   && mv /usr/share/ublue-os/image-info.json.tmp /usr/share/ublue-os/image-info.json
-  jq '.["image-ref"]="ostree-image-signed:docker://ghcr.io/bazzirco/bazzirco"' \
+  jq '.["image-ref"]="ostree-image-signed:docker://ghcr.io/Haxorzz/doubutsu"' \
     /usr/share/ublue-os/image-info.json \
     > /usr/share/ublue-os/image-info.json.tmp \
   && mv /usr/share/ublue-os/image-info.json.tmp /usr/share/ublue-os/image-info.json
 else
   jq --arg name "$IMAGE_PRETTY_NAME" \
-    '.["image-name"]="bazzirco-\($name)"' \
+    '.["image-name"]="doubutsu-\($name)"' \
     /usr/share/ublue-os/image-info.json \
     > /usr/share/ublue-os/image-info.json.tmp \
   && mv /usr/share/ublue-os/image-info.json.tmp /usr/share/ublue-os/image-info.json
-  jq '.["image-ref"]="ostree-image-signed:docker://ghcr.io/bazzirco/bazzirco-$IMAGE_PRETTY_NAME"' \
+  jq '.["image-ref"]="ostree-image-signed:docker://ghcr.io/Haxorzz/doubutsu-$IMAGE_PRETTY_NAME"' \
     /usr/share/ublue-os/image-info.json \
     > /usr/share/ublue-os/image-info.json.tmp \
   && mv /usr/share/ublue-os/image-info.json.tmp /usr/share/ublue-os/image-info.json
