@@ -63,9 +63,9 @@ dnf5 -y copr disable pvermeer/gamescope-session-guide
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:pvermeer:gamescope-session-guide install gamescope-session-guide
 
 # Adding howdy for face unlocking
-sudo dnf copr enable principis/howdy -y
-sudo dnf --refresh install howdy -y
-sudo dnf copr disable principis/howdy -y
+dnf5 -y copr enable principis/howdy
+dnf5 -y copr disable principis/howdy
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:principis:howdy install howdy
 
 # Other system packages
 dnf -y install \
@@ -107,6 +107,7 @@ dnf -y install \
     xdg-user-dirs \
     xwayland-satellite \
     micro \		# Better nano
+    oxygen-sounds \		# Cool sounds
 	
 
 # we already have a service for handling fcitx5
