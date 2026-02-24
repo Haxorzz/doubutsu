@@ -142,7 +142,7 @@ add_wants_niri() {
     sed -i "s/\[Unit\]/\[Unit\]\nWants=$1/" "/usr/lib/systemd/user/niri.service"
 }
 add_wants_niri udiskie.service
-add_wants_niri foot-server.service
+# add_wants_niri foot-server.service
 cat /usr/lib/systemd/user/niri.service
 
 #Only enable greetd service on non-deck images
@@ -176,7 +176,7 @@ systemctl enable --global iio-niri.service
 systemctl enable --global udiskie.service
 systemctl preset --global chezmoi-init
 systemctl preset --global chezmoi-update
-systemctl preset --global foot-server
+# systemctl preset --global foot-server
 systemctl preset --global udiskie
 systemctl enable brew-setup.service
 systemctl enable flatpak-preinstall.service
