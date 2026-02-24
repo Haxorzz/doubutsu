@@ -66,7 +66,7 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:pvermeer:gamescope-session-g
 # Adding howdy for face unlocking
 dnf copr enable ronnypfannschmidt/howdy-beta -y
 dnf copr disable ronnypfannschmidt/howdy-beta -y
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:ronnypfannschmidt:howdy-beta install howdy-beta howdy-gtk howdy-authselect
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:ronnypfannschmidt:howdy-beta install howdy howdy-gtk howdy-authselect
 howdy-authselect enable
 
 # Other system packages
