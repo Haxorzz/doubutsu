@@ -107,7 +107,7 @@ dnf -y install \
     xdg-terminal-exec \
     xdg-user-dirs \
     xwayland-satellite \
-    micro \	
+    micro \
     oxygen-sounds \
 	
 
