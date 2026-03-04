@@ -2,6 +2,10 @@
 
 set -xeuo pipefail
 
+if rpm -q sudo &> /dev/null; then
+	dnf swap sudo sudo-rs
+fi
+
 #De-bazzite-ify
 dnf5 versionlock delete \
         pipewire \
