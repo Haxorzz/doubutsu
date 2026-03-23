@@ -9,11 +9,11 @@ dnf -y install \
 install -d /usr/share/zirconium/
 
 #install terra stuff
+dnf config-manager --set-enabled terra
 dnf5 -y install \
-	terra-release \
-	terra-release-extras \
 	iio-niri \
-	valent
+	valent \
+	--enablerepo=terra
 
 dnf -y copr enable yalter/niri-git
 dnf -y copr disable yalter/niri-git
