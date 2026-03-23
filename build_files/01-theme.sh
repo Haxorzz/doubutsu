@@ -9,7 +9,7 @@ dnf -y install \
 install -d /usr/share/zirconium/
 
 #install terra stuff
-dnf config-manager --set-enabled terra
+dnf config-manager setopt terra.enabled=1
 dnf5 -y install \
 	iio-niri \
 	valent \
