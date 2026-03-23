@@ -190,25 +190,6 @@ git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/zirconium/zdot
 install -Dpm0644 -t /usr/share/zirconium/skel/Pictures/Wallpapers/ /ctx/assets/wallpapers/*
 install -Dpm0644 -t /usr/share/zirconium/pixmaps/ /ctx/assets/logos/logo-z.svg
 
-mkdir -p "/usr/share/fonts/Maple Mono"
-
-XDG_EXT_TMPDIR="$(mktemp -d)"
-curl -fsSLo - "$(curl -fsSL https://api.github.com/repos/tulilirockz/xdg-terminal-exec-nautilus/releases/latest | jq -rc .tarball_url)" | tar -xzvf - -C "${XDG_EXT_TMPDIR}"
-install -Dpm0644 -t "/usr/share/nautilus-python/extensions/" "${XDG_EXT_TMPDIR}"/*/xdg-terminal-exec-nautilus.py
-rm -rf "${XDG_EXT_TMPDIR}"
-
-MAPLE_TMPDIR="$(mktemp -d)"
-LATEST_RELEASE_FONT="$(curl --retry 3 "https://api.github.com/repos/subframe7536/maple-font/releases/latest" | jq '.assets[] | select(.name == "MapleMono-Variable.zip") | .browser_download_url' -rc)"
-curl --retry 3 -fSsLo "${MAPLE_TMPDIR}/maple.zip" "${LATEST_RELEASE_FONT}"
-unzip "${MAPLE_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono"
-rm -rf "${MAPLE_TMPDIR}"
-
-MAPLE_NF_TMPDIR="$(mktemp -d)"
-LATEST_RELEASE_FONT="$(curl --retry 3 "https://api.github.com/repos/subframe7536/maple-font/releases/latest" | jq '.assets[] | select(.name == "MapleMono-NF.zip") | .browser_download_url' -rc)"
-curl --retry 3 -fSsLo "${MAPLE_NF_TMPDIR}/maple.zip" "${LATEST_RELEASE_FONT}"
-unzip "${MAPLE_NF_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono NF"
-rm -rf "${MAPLE_NF_TMPDIR}"
-
 fc-cache --force --really-force --system-only --verbose # recreate font-cache to pick up the added fonts
 
 echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
