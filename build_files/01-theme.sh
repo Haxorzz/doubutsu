@@ -8,8 +8,7 @@ dnf -y install \
 
 install -d /usr/share/zirconium/
 
-#install terra repo
-dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+#install terra stuff
 dnf5 -y install \
 	terra-release \
 	terra-release-extras \
