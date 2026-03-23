@@ -11,7 +11,6 @@ install -d /usr/share/zirconium/
 dnf -y copr enable zirconium/packages
 dnf -y copr disable zirconium/packages
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
-    matugen \
     iio-niri \
     valent-git
 
@@ -71,6 +70,7 @@ howdy-authselect enable
 
 # Other system packages
 dnf -y install \
+	matugen
     greetd \
     greetd-selinux \
     brightnessctl \
