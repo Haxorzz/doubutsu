@@ -9,7 +9,8 @@ dnf -y install \
 install -d /usr/share/zirconium/
 
 #install terra repo
-dnf5 install --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' --setopt='terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc' \
+dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+dnf5 -y install \
 	terra-release \
 	terra-release-extras \
 	iio-niri \
