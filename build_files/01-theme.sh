@@ -11,6 +11,8 @@ install -d /usr/share/zirconium/
 #install terra stuff
 dnf config-manager setopt terra.enabled=1
 dnf5 -y install \
+    maple-fonts \
+    xdg-terminal-exec-nautilus \
 	iio-niri \
 	valent \
 	--enablerepo=terra
