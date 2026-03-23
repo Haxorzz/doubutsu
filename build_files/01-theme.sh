@@ -8,11 +8,12 @@ dnf -y install \
 
 install -d /usr/share/zirconium/
 
-dnf -y copr enable zirconium/packages
-dnf -y copr disable zirconium/packages
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
-    iio-niri \
-    valent-git
+#install terra repo
+dnf5 install --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' --setopt='terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc' \
+	terra-release \
+	terra-release-extras \
+	iio-niri \
+	valent
 
 dnf -y copr enable yalter/niri-git
 dnf -y copr disable yalter/niri-git
