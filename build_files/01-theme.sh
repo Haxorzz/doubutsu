@@ -73,7 +73,7 @@ howdy-authselect enable
 
 # Other system packages
 dnf -y install \
-	matugen
+	matugen \
     greetd \
     greetd-selinux \
     brightnessctl \
@@ -93,7 +93,7 @@ dnf -y install \
     gnome-keyring \
     gnome-keyring-pam \
     gnome-kra-ora-thumbnailer \
-    adw-gtk3-theme
+    adw-gtk3-theme \
     hyfetch \
     input-remapper \
     just \
