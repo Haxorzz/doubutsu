@@ -82,6 +82,7 @@ dnf -y install \
     ddcutil \
     fastfetch \
     fcitx5-mozc \
+    fcitx5-configtool \
     flatpak \
     ptyxis \
     fpaste \
@@ -91,6 +92,8 @@ dnf -y install \
     gnome-disk-utility \
     gnome-keyring \
     gnome-keyring-pam \
+    gnome-kra-ora-thumbnailer \
+    adw-gtk3-theme
     hyfetch \
     input-remapper \
     just \
