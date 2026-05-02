@@ -1,0 +1,11 @@
+/*
+doubuts
+*/
+include "includes/binds.kdl"
+include "includes/dms-base.kdl"
+include "includes/input.kdl"
+include "includes/layout.kdl"
+include "includes/misc.kdl"
+include "includes/shadow.kdl"
+include "includes/window-rules.kdl"
+include optional=true "/etc/niri/local.kdl"

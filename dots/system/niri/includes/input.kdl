@@ -1,0 +1,32 @@
+input {
+    keyboard {
+        xkb {}
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        drag-lock
+        drag true
+        accel-profile "adaptive"
+        click-method "clickfinger"
+        scroll-factor 1
+        click-method "clickfinger"
+    }
+
+    mouse {
+        accel-profile "adaptive"
+    }
+
+    trackpoint {}
+}
+
+clipboard {
+    disable-primary
+}
+
+cursor {
+	hide-when-typing
+	hide-after-inactive-ms 5000
+}
