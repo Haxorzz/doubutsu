@@ -9,6 +9,8 @@ COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/luks* /files/usr/bin
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/share/ublue-os/just /files/usr/share/ublue-os/just
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /files
+COPY dots /usr/share/doubutsu/dots
+COPY dots/dot_config /files/etc/skel/.config
 
 FROM "$BASE_IMAGE"
 

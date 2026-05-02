@@ -1,4 +1,4 @@
-image := env("IMAGE_FULL", "zirconium:latest")
+image := env("IMAGE_FULL", "doubutsu:latest")
 filesystem := env("BUILD_FILESYSTEM", "ext4")
 
 iso $image=image:
@@ -45,6 +45,6 @@ disk-image $filesystem=filesystem:
 
 quick-iterate:
     #!/usr/bin/env bash
-    podman build -t zirconium:latest .
+    podman build -t doubutsu:latest .
     just rootful
     BUILD_BASE_DIR=/tmp just disk-image

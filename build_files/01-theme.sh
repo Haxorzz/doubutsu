@@ -181,9 +181,10 @@ systemctl preset --global udiskie
 systemctl enable brew-setup.service
 systemctl enable flatpak-preinstall.service
 
-#TODO Replace zdots
-git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/zirconium/zdots
+# Copy wallpapers
 install -Dpm0644 -t /usr/share/zirconium/skel/Pictures/Wallpapers/ /ctx/assets/wallpapers/*
+# Copy configs
+cp -r /usr/share/doubutsu/dots/* /usr/share/
 
 fc-cache --force --really-force --system-only --verbose # recreate font-cache to pick up the added fonts
 
@@ -191,10 +192,10 @@ echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
 
 # Theme greetd
 tee /usr/lib/tmpfiles.d/99-greeter-config.conf <<'EOF'
-L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/zirconium/zdots/dot_config/DankMaterialShell/settings.json
-L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/zirconium/zdots/private_dot_local/state/DankMaterialShell/session.json
-L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
-L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
+L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/doubutsu/dots/dot_config/DankMaterialShell/settings.json
+L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/doubutsu/dots/private_dot_local/state/DankMaterialShell/session.json
+L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/doubutsu/dots/dot_cache/DankMaterialShell/dms-colors.json
+L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/doubutsu/dots/dot_cache/DankMaterialShell/dms-colors.json
 EOF
 
 install -d /usr/share/bash-completion/completions /usr/share/zsh/site-functions /usr/share/fish/vendor_completions.d/
