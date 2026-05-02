@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+fastfetch --ascii-file=/usr/share/doubutsu/doubutsu.txt "${@}"

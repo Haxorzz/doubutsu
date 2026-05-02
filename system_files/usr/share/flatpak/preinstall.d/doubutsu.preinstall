@@ -2,10 +2,10 @@
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.gnome.TextEditor]
+[Flatpak Preinstall io.github.kolunmi.Bazaar]
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall io.github.kolunmi.Bazaar]
+[Flatpak Preinstall com.github.tchx84.Flatseal]
 Branch=stable
 IsRuntime=false
