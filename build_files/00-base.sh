@@ -83,7 +83,7 @@ dnf -y remove \
   toolbox
 
 # These were manually picked out from a Bluefin comparison with `rpm -qa --qf="%{NAME}\n" `
-dnf -y install \
+dnf -y --skip-broken install \
   -x PackageKit* \
   NetworkManager \
   NetworkManager-adsl \
