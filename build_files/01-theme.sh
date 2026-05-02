@@ -72,7 +72,7 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:ronnypfannschmidt:howdy-beta
 howdy-authselect enable
 
 # Other system packages
-dnf -y --skip-broken install \
+dnf -y install \
 	matugen \
     greetd \
     greetd-selinux \
