@@ -72,7 +72,7 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:ronnypfannschmidt:howdy-beta
 howdy-authselect enable
 
 # Other system packages
-dnf -y install \
+dnf -y --skip-broken install \
 	matugen \
     greetd \
     greetd-selinux \
@@ -131,10 +131,8 @@ dnf install -y --setopt=install_weak_deps=False \
     plasma-breeze \
     kf6-qqc2-desktop-style \
 
-#Only do greetd keyring stuff on non-deck images
-if [ "$DECK_IMAGE" == False ] ; then
-  sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
-fi
+#greetd keyring stuff
+sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
 
 # Codecs for video thumbnails on nautilus
 
@@ -149,13 +147,10 @@ add_wants_niri() {
     sed -i "s/\[Unit\]/\[Unit\]\nWants=$1/" "/usr/lib/systemd/user/niri.service"
 }
 add_wants_niri udiskie.service
-# add_wants_niri foot-server.service
 cat /usr/lib/systemd/user/niri.service
 
-#Only enable greetd service on non-deck images
-if [ "$DECK_IMAGE" == False ] ; then
-  systemctl enable greetd
-fi
+#Enable services
+systemctl enable greetd
 systemctl enable firewalld
 
 # Sacrificed to the :steamhappy: emoji old god
@@ -175,7 +170,6 @@ cp -avf "/ctx/files"/. /
 systemctl enable --global chezmoi-init.service
 systemctl enable --global chezmoi-update.timer
 systemctl enable --global dms.service
-# systemctl enable --global foot-server.service
 systemctl enable --global fcitx5.service
 systemctl enable --global gnome-keyring-daemon.service
 systemctl enable --global gnome-keyring-daemon.socket
@@ -183,29 +177,25 @@ systemctl enable --global iio-niri.service
 systemctl enable --global udiskie.service
 systemctl preset --global chezmoi-init
 systemctl preset --global chezmoi-update
-# systemctl preset --global foot-server
 systemctl preset --global udiskie
 systemctl enable brew-setup.service
 systemctl enable flatpak-preinstall.service
 
+#TODO Replace zdots
 git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/zirconium/zdots
-#install -Dpm0644 -t /usr/share/plymouth/themes/spinner/ /ctx/assets/logos/watermark.png
 install -Dpm0644 -t /usr/share/zirconium/skel/Pictures/Wallpapers/ /ctx/assets/wallpapers/*
-install -Dpm0644 -t /usr/share/zirconium/pixmaps/ /ctx/assets/logos/logo-z.svg
 
 fc-cache --force --really-force --system-only --verbose # recreate font-cache to pick up the added fonts
 
 echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
 
-#Only theme greetd on non-deck images
-if [ "$DECK_IMAGE" == False ] ; then
+# Theme greetd
 tee /usr/lib/tmpfiles.d/99-greeter-config.conf <<'EOF'
 L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/zirconium/zdots/dot_config/DankMaterialShell/settings.json
 L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/zirconium/zdots/private_dot_local/state/DankMaterialShell/session.json
 L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
 L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
 EOF
-fi
 
 install -d /usr/share/bash-completion/completions /usr/share/zsh/site-functions /usr/share/fish/vendor_completions.d/
 just --completions bash | sed -E 's/([\(_" ])just/\1zjust/g' > /usr/share/bash-completion/completions/zjust
