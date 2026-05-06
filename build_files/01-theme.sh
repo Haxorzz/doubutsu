@@ -165,6 +165,7 @@ dnf install -y \
 dnf remove -y \
 	pipewire-config-raop
 
+# copy files from container to root
 cp -avf "/ctx/files"/. /
 
 systemctl enable --global chezmoi-init.service
@@ -183,8 +184,6 @@ systemctl enable flatpak-preinstall.service
 
 # Copy wallpapers
 install -Dpm0644 -t /usr/share/zirconium/skel/Pictures/Wallpapers/ /ctx/assets/wallpapers/*
-# Copy configs
-cp -r /ctx/dots/. /usr/share/
 
 fc-cache --force --really-force --system-only --verbose # recreate font-cache to pick up the added fonts
 
