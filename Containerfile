@@ -10,13 +10,6 @@ COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/luks* /files/usr/bin
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/share/ublue-os/just /files/usr/share/ublue-os/just
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /files
-# keep a copy of the dots in usr/share
-COPY dots /files/usr/share/doubutsu/dots
-# copy the dot files where they need to be
-COPY dots/dot_config /files/etc/skel/.config
-COPY dots/dot_cache /files/etc/skel/.cache
-COPY dots/private_dot_local /files/etc/skel/.local
-COPY dots/system /files/usr/share
 
 FROM "$BASE_IMAGE"
 

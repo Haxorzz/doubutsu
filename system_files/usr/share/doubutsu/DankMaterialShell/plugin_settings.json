@@ -1,0 +1,60 @@
+{
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "08eaffdd2a6b4c55a0ad9b0acfb4bd49"
+  },
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "niriScreenshot": {
+    "enabled": true
+  },
+  "dmsLenovoBatterySettings": {
+    "enabled": true
+  },
+  "dankLauncherKeys": {
+    "enabled": true
+  },
+  "dankActions": {
+    "enabled": true,
+    "variants": [
+      {
+        "icon": "terminal",
+        "displayText": "•••",
+        "displayCommand": "",
+        "clickCommand": "niri msg action toggle-overview\n",
+        "middleClickCommand": "",
+        "rightClickCommand": "",
+        "updateInterval": 0,
+        "showIcon": false,
+        "showText": true,
+        "visibilityCommand": "niri msg focused-window\n",
+        "visibilityInterval": 1,
+        "id": "variant_1773165266061",
+        "name": "Overview"
+      },
+      {
+        "icon": "X",
+        "displayText": "🗙",
+        "displayCommand": "",
+        "clickCommand": "niri msg action close-window\n",
+        "middleClickCommand": "",
+        "rightClickCommand": "",
+        "updateInterval": 0,
+        "showIcon": false,
+        "showText": true,
+        "visibilityCommand": "niri msg focused-window | grep -Po '(?<=Title: \").*(?=\")'",
+        "visibilityInterval": 1,
+        "id": "variant_1773166182558",
+        "name": "Close"
+      }
+    ]
+  },
+  "dankCleaner": {
+    "enabled": false,
+    "cleanupTmp": true
+  },
+  "catWidget": {
+    "enabled": true
+  }
+}
