@@ -191,10 +191,10 @@ echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
 
 # Theme greetd
 tee /usr/lib/tmpfiles.d/99-greeter-config.conf <<'EOF'
-L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/doubutsu/DankMaterialShell/settings.json
-L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/doubutsu/DankMaterialShell/session.json
-L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/doubutsu/DankMaterialShell/dms-colors.json
-L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/doubutsu/DankMaterialShell/dms-colors.json
+L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/doubutsu/dots/dot_config/DankMaterialShell/settings.json
+L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/doubutsu/dots/private_dot_local/state/DankMaterialShell/session.json
+L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/doubutsu/dots/dot_cache/DankMaterialShell/dms-colors.json
+L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/doubutsu/dots/dot_cache/DankMaterialShell/dms-colors.json
 EOF
 
 install -d /usr/share/bash-completion/completions /usr/share/zsh/site-functions /usr/share/fish/vendor_completions.d/
