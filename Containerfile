@@ -24,7 +24,7 @@ ARG DECK_IMAGE="$DECK_IMAGE"
 ARG BASE_IMAGE="$BASE_IMAGE"
 ARG IMAGE_TAG="$IMAGE_TAG"
 ARG IMAGE_PRETTY_NAME="$IMAGE_PRETTY_NAME"
-.sh
+
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build/00-base.sh
