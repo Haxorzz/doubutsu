@@ -184,7 +184,7 @@ systemctl enable flatpak-preinstall.service
 # Copy wallpapers
 install -Dpm0644 -t /usr/share/zirconium/skel/Pictures/Wallpapers/ /ctx/assets/wallpapers/*
 # Copy configs
-cp -r /dots/ /usr/share/
+cp -r /ctx/dots/. /usr/share/
 
 fc-cache --force --really-force --system-only --verbose # recreate font-cache to pick up the added fonts
 
